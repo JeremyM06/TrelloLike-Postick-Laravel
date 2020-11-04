@@ -82,12 +82,22 @@
                     @endauth
                 </div>
             @endif
-
             <div class="content">
                 <div class="title m-b-md">
-                    POSTICK
+                    PosTick
                 </div>
             </div>
+                {{-- <div class="links">
+                    <a href="https://community.lebocal.academy/student">Community</a>
+                    <a href="https://gitlab.lebocal.academy/">GitLab</a>
+                    <a href="https://laravel-news.com">Laravel News</a>
+                    <a href="https://stackoverflow.com/">Stackoverflow</a>
+                    <a href="https://news.humancoders.com/">Veille info</a>
+                    <a href="https://www.silicon.fr/actualites/projects/devops#">Veille info 2</a>
+                    <a href="https://developer-tech.com/">News in English</a>
+                    <a href="https://www.codingame.com/home">Code In Game</a>
+
+            </div> --}}
         </div>
     </body>
 </html>

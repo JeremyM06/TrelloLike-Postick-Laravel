@@ -28,3 +28,17 @@ Route::get('/profile', 'UserController@index')->middleware('auth')->name('profil
 
 // Route Profile POST
 Route::post('/profile', 'UserController@store')->name('profile.store');
+
+//  Home master (home personnalisée)
+
+// Route show GET
+Route::get('/homemaster', 'UserController@show')->name('homemaster.show.');
+
+// Route create POST
+Route::post('/homemaster', 'UserController@create')->name('homemaster.create');
+
+// Route destroy
+Route::get('/homemaster', 'UserController@destroy')->name('homemaster.destroy');
+
+// Route update
+Route::get('/homemaster', 'UserController@update')->name('homemaster.update');
