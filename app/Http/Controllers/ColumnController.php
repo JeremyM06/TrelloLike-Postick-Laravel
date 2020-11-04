@@ -12,10 +12,13 @@ class ColumnController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-
-        return view('createCol');
+        // dd(
+        //     $request->all()
+        // );
+        //global $test = $request->tableId;
+        return view('createCol', ['table' => $request->tableId]);
     }
 
     /**
@@ -38,10 +41,11 @@ class ColumnController extends Controller
     {
         // dd(
         //     $request->all(),
+
         // );
         $col = new Col();
         $col->title = $request->title;
-        $col->table_id = 2;
+        $col->table_id = $request->tableId;
         $col->save();
 
         return redirect()->route('table');

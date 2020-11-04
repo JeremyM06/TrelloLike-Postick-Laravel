@@ -11,10 +11,12 @@
 <div>
     @foreach ($table as $item)
         <div>
-            <h6> {{ $item->title }} </h6>
-            <a href="@route('col.index')/?table={{$item->id}}">Ajouter une colonne</a>
+            <h2> {{ $item->title }} </h2>
+            <a href="@route('col.index')/?tableId={{$item->id}}">Ajouter une colonne</a>
             <div>
-
+                @foreach ($cols as $item)
+                    <p>{{ $item->title }}</p>
+                @endforeach
             </div>
         </div>
     @endforeach

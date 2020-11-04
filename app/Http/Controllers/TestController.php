@@ -14,11 +14,14 @@ class TestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        // dd(
+        //     $request->all()
+        // );
         return view('createtable', [
             'table' => Table::all()->where('user_id', Auth::user()->id),
-            //'cols' => Col::all()->where('table_id', Table::all()->id)
+            'cols' => Col::all(), //->where('table_id', Table::all()->id)
         ]);
     }
 
