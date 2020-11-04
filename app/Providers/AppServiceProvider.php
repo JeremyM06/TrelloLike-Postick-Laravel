@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Blade::directive('route', function ($expression) {
-            return "<?php echo route($expression); ?>";
+            return "<?php echo route ($expression); ?>";
         });
     }
 }
