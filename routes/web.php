@@ -19,7 +19,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');
 
-Route::get('/table', 'TestController@index')->name('table');
+Route::get('/table', 'TestController@index')->middleware('auth')->name('table');
+Route::post('/table', 'TestController@store')->name('table.store');
+
+Route::get('/col', 'ColumnController@index')->name('col.index');
+Route::post('/col', 'ColumnController@store')->name('col.store');
+
 
 //--- Profile routes
 

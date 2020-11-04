@@ -61,13 +61,12 @@
                                         {{ __('Logout') }}
                                     </a>
 
+                                    <a href=" @route('table')  ">Create</a>
+
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
                                 </div>
-                            </li>
-                            <li>
-                                <a href="">Create</a>
                             </li>
                         @endguest
                     </ul>

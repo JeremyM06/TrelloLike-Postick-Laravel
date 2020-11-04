@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Table;
 use App\Col;
 
-class TestController extends Controller
+class ColumnController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +14,8 @@ class TestController extends Controller
      */
     public function index()
     {
-        return view('createtable', [
-            'table' => Table::all()->where('user_id', Auth::user()->id),
-            //'cols' => Col::all()->where('table_id', Table::all()->id)
-        ]);
+
+        return view('createCol');
     }
 
     /**
@@ -40,18 +36,15 @@ class TestController extends Controller
      */
     public function store(Request $request)
     {
-
-        $userCo = Auth::user();
-        $table = new Table();
-        $table->title = $request->title;
-        $table->user_id = $userCo->id;
-        $table->save();
         // dd(
-        //     $request,
-        //     $userCo
+        //     $request->all(),
         // );
+        $col = new Col();
+        $col->title = $request->title;
+        $col->table_id = 2;
+        $col->save();
 
-        return back();
+        return redirect()->route('table');
     }
 
     /**
