@@ -17,10 +17,19 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');
 
 Route::get('/table', 'TestController@index')->middleware('auth')->name('table');
 Route::post('/table', 'TestController@store')->name('table.store');
 
 Route::get('/col', 'ColumnController@index')->name('col.index');
 Route::post('/col', 'ColumnController@store')->name('col.store');
+
+
+//--- Profile routes
+
+// Route Profile GET
+Route::get('/profile', 'UserController@index')->middleware('auth')->name('profile.index');
+
+// Route Profile POST
+Route::post('/profile', 'UserController@store')->name('profile.store');
