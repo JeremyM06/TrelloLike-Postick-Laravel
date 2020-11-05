@@ -25,11 +25,13 @@ Route::get('/table', 'TableController@index')->middleware('auth')->name('table')
 Route::post('/table', 'TableController@store')->name('table.store');
 
 //--- Table=>col/cards/com ---
-Route::get('/details', 'TableController@edit')->middleware('auth')->name('table.edit');
-
-Route::get('/col', 'ColumnController@index')->middleware('auth')->name('col.index');
+Route::get('/detailsTable', 'TableController@edit')->middleware('auth')->name('table.edit');
+//Create col
 Route::post('/col', 'ColumnController@store')->name('col.store');
-//col
+//Create card
+Route::post('/card', 'CardController@store')->name('card.store');
+
+
 
 
 

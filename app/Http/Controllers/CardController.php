@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Col;
+use App\Card;
 
-class ColumnController extends Controller
+use Illuminate\Http\Request;
+
+class CardController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         //
     }
@@ -35,12 +36,11 @@ class ColumnController extends Controller
      */
     public function store(Request $request)
     {
+        $card = new Card();
 
-        $col = new Col();
-
-        $col->title = $request->title;
-        $col->table_id = $request->tableId;
-        $col->save();
+        $card->title = $request->title;
+        $card->col_id = $request->col_id;
+        $card->save();
         //$coltest = Col::all()->last();
         //session(['coltest' => $coltest]);
         //$value = session('coltest');
