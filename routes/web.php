@@ -44,10 +44,19 @@ Route::get('/profile', 'ProfilController@index')->middleware('auth')->name('prof
 Route::post('/profile', 'ProfilController@update')->name('profile.update');
 
 
+//  Home master (home personnalisée)
 
+// Route show GET
+Route::get('/homemaster', 'UserController@show')->name('homemaster.show.');
 
+// Route create POST
+Route::post('/homemaster', 'UserController@create')->name('homemaster.create');
 
+// Route destroy
+Route::get('/homemaster', 'UserController@destroy')->name('homemaster.destroy');
 
+// Route update
+Route::get('/homemaster', 'UserController@update')->name('homemaster.update');
 
 
 // Route::prefix('/home', 'HomeController@index')->middleware('auth')->name('home')->group(function () {
