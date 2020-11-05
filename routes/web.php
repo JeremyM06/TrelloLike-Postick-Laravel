@@ -17,19 +17,40 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//--- Redirection vers les boards
 Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');
 
-Route::get('/table', 'TestController@index')->middleware('auth')->name('table');
-Route::post('/table', 'TestController@store')->name('table.store');
+//----Boards & Création de tables
+Route::get('/table', 'TableController@index')->middleware('auth')->name('table');
+Route::post('/table', 'TableController@store')->name('table.store');
 
-Route::get('/col', 'ColumnController@index')->name('col.index');
+//--- Table=>col/cards/com ---
+Route::get('/details', 'TableController@edit')->middleware('auth')->name('table.edit');
+
+Route::get('/col', 'ColumnController@index')->middleware('auth')->name('col.index');
 Route::post('/col', 'ColumnController@store')->name('col.store');
+//col
+
+
+
 
 
 //--- Profile routes
 
-// Route Profile GET
-Route::get('/profile', 'UserController@index')->middleware('auth')->name('profile.index');
+// Route Profile GET && POST
+Route::get('/profile', 'ProfilController@index')->middleware('auth')->name('profile.index');
+Route::post('/profile', 'ProfilController@update')->name('profile.update');
 
-// Route Profile POST
-Route::post('/profile', 'UserController@store')->name('profile.store');
+
+
+
+
+
+
+
+// Route::prefix('/home', 'HomeController@index')->middleware('auth')->name('home')->group(function () {
+//     Route::get('/table', 'TestController@index')->middleware('auth')->name('table');
+//     Route::post('/table', 'TestController@store')->name('table.store');
+//     Route::get('/col', 'ColumnController@index')->name('col.index');
+//     Route::post('/col', 'ColumnController@store')->name('col.store');
+// });
