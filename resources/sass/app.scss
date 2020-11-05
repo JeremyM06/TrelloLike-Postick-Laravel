@@ -1,8 +1,20 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&display=swap');
 
 // Variables
 @import 'variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+// Cards Profil
+
+.card-header {
+	text-align: center;
+	background-color: lightgrey;
+}
+
+body {
+    background-color: red;
+}
