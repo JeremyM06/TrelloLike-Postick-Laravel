@@ -30,6 +30,9 @@ Route::get('/detailsTable', 'TableController@edit')->middleware('auth')->name('t
 Route::post('/col', 'ColumnController@store')->name('col.store');
 //Create card
 Route::post('/card', 'CardController@store')->name('card.store');
+//Create comments
+Route::post('/com', 'CommentsController@store')->name('com.store');
+
 
 
 
