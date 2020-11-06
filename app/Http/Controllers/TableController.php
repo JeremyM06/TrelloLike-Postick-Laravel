@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Table;
 use App\Col;
 use App\Card;
+use App\Com;
 
 
 class TableController extends Controller
@@ -78,6 +79,7 @@ class TableController extends Controller
             'table' => $request->tableId,
             'cols' => Col::all()->where('table_id', $request->tableId),
             'cards' => Card::all(),
+            'coms' => Com::all(),
 
         ]);
     }

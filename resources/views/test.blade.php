@@ -13,7 +13,7 @@
 
             @foreach ($cards as $card)
                 @if ($card->col_id == $col->id)
-
+                {{ $card->title }}
                     <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
     <div class="text-center">
