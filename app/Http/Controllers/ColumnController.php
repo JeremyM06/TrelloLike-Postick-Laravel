@@ -39,10 +39,6 @@ class ColumnController extends Controller
         $col->title = $request->title;
         $col->table_id = $request->tableId;
         $col->save();
-        //$coltest = Col::all()->last();
-        //session(['coltest' => $coltest]);
-        //$value = session('coltest');
-        //dd($value);
         return back();
     }
 

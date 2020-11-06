@@ -77,10 +77,10 @@ class TableController extends Controller
     {
         return view('tables', [
             'table' => $request->tableId,
+            'tables' => Table::all()->where('id', $request->tableId),
             'cols' => Col::all()->where('table_id', $request->tableId),
             'cards' => Card::all(),
             'coms' => Com::all(),
-
         ]);
     }
 

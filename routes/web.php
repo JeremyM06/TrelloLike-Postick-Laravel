@@ -28,8 +28,12 @@ Route::post('/table', 'TableController@store')->name('table.store');
 Route::get('/detailsTable', 'TableController@edit')->middleware('auth')->name('table.edit');
 //Create col
 Route::post('/col', 'ColumnController@store')->name('col.store');
+
 //Create card
 Route::post('/card', 'CardController@store')->name('card.store');
+//Delete Card
+Route::any('/card/delete', 'CardController@destroy')->name('card.delete');
+
 //Create comments
 Route::post('/com', 'CommentsController@store')->name('com.store');
 

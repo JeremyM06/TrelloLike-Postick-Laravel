@@ -19,6 +19,11 @@ class CreateCardsTable extends Migration
             $table->string('title');
             $table->timestamps();
         });
+        // Schema::delete('cards', function (Blueprint $table) {
+        //     $table->foreign('coms_id')
+        //         ->references('id')->on('cards')
+        //         ->onDelete('cascade');
+        // });
     }
 
     /**
