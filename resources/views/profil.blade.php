@@ -1,8 +1,20 @@
 @extends('layouts.app')
 
 
+@section('style')
+<style>
+    body{
+        background-image: url(https://1.bp.blogspot.com/-TrTUxaaohYs/WGsrYjCaI2I/AAAAAAAASSM/npnrYplkVZI4eikM-xyuRnMNNVpn-PscwCLcB/s1600/Nexus%2BDesktop%2BWallpapers%2B10.jpg);
+        /* background-position: center center; */
+        background-size: cover;
+    }
+    p {
+        font-family: 'Dancing Script', cursive;
+    }
 
+</style>
 @section('content')
+
 
 
 
@@ -45,20 +57,20 @@
                     <div class="modal-body">
                         @csrf
 
-                        <p class="card-text" style="font-family: 'Dancing Script', cursive;">Votre Nom : </p>
-                        <input type="text" name="name" value="{{ $item->name }}">
+                        <p class="card-text" >Votre Nom : </p>
+                        <input type="text" name="name" placeholder="{{ $item->name }}">
 
                         <br>
                         <br>
-                        <p class="card-text" style="font-family: 'Dancing Script', cursive;">Votre Email : </p>
-                        <input type="email" name="email" value="{{ $item->email }}">
+                        <p class="card-text" >Votre Email : </p>
+                        <input type="email" name="email" placeholder="{{ $item->email }}">
                         <br>
                         <br>
-                        <p class="card-text" style="font-family: 'Dancing Script', cursive;">Votre nouveau mot de passe : </p>
+                        <p class="card-text" >Votre nouveau mot de passe : </p>
                         <input type="password" name="password">
                         <br>
                         <br>
-                        <p class="card-text" style="font-family: 'Henny Penny', cursive;">Confirmer votre mot de passe : </p>
+                        <p class="card-text">Confirmer votre mot de passe : </p>
                         <input type="password" name="password_confirmation">
 
                     </div>
@@ -67,6 +79,7 @@
                         <input type="submit" class="btn btn-primary" value="Enregistrer">
                     </div>
             </form>
+
             @endforeach
 
           </div>

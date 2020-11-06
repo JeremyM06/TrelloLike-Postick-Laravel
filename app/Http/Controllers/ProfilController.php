@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use PhpParser\Node\Expr\Isset_;
 
 class ProfilController extends Controller
 {
@@ -44,14 +45,26 @@ class ProfilController extends Controller
     public function update(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'string|min:3|confirmed',
+            'name' => 'nullable|string|max:255',
+            'email' => 'nullable|string|email|max:255|unique:users',
+            'password' => 'nullable|string|min:3|confirmed',
+
         ]);
         $user = Auth::user();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
+
+        if ($request->name) {
+            $user->name = $request->name;
+        }
+
+
+        if ($request->email) {
+            $user->email = $request->email;
+        }
+
+        if ($request->password) {
+            $user->password = Hash::make($request->password);
+        }
+
 
         $user->save();
         return back();
