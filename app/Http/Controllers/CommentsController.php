@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Card;
-
 use Illuminate\Http\Request;
+use App\Com;
 
-class CardController extends Controller
+class CommentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,11 +35,11 @@ class CardController extends Controller
      */
     public function store(Request $request)
     {
-        $card = new Card();
+        $com = new Com();
 
-        $card->title = $request->title;
-        $card->col_id = $request->col_id;
-        $card->save();
+        $com->comment = $request->title;
+        $com->card_id = $request->card_id;
+        $com->save();
         return back();
     }
 

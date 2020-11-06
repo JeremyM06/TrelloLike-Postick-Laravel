@@ -13,7 +13,7 @@
 
             @foreach ($cards as $card)
                 @if ($card->col_id == $col->id)
-
+                {{ $card->title }}
                     <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
     <div class="text-center">
@@ -76,13 +76,5 @@
         <input type="hidden" name="tableId" value="{{ $table }}">
         <input type="submit">
     </form>
-<<<<<<< HEAD
-
-
-Macarte
-
-id de mon tableau: {{ $table }}
-=======
->>>>>>> 0a2c47f754d080efcadaeaf652ae7b0e0873eb75
 
 @endsection

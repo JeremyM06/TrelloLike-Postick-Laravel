@@ -49749,15 +49749,7 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
  */
 
 var app = new Vue({
-  el: '#app',
-  data: {
-    test: true
-  },
-  methods: {
-    test: function test() {
-      return 5;
-    }
-  }
+  el: '#app'
 });
 
 /***/ }),
