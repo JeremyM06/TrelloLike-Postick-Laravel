@@ -21,6 +21,7 @@
     <script>
         var test=true;
     </script>
+    @yield('style')
 </head>
 <body>
     <div id="app">

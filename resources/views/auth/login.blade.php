@@ -1,6 +1,15 @@
 @extends('layouts.app')
 
+@section('style')
+<style>
+    body{
+        background-image: url(https://images.pexels.com/photos/3771110/pexels-photo-3771110.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+        background-position: center center;
+        background-size: cover;
+    }
+</style>
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -70,4 +79,6 @@
         </div>
     </div>
 </div>
+
+
 @endsection
