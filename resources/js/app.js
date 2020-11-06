@@ -29,14 +29,4 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
-
-    data: {
-
-        test: true,
-    },
-    methods: {
-        test: function () {
-            return 5;
-        },
-    }
 });

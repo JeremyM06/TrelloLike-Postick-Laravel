@@ -80,9 +80,9 @@
         </nav>
 
         <main class="py-4" >
-        <div id="app">
+
             @yield('content')
-        </div>
+
         </main>
     </div>
 </body>
