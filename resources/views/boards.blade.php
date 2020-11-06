@@ -36,10 +36,11 @@
     <div class="d-flex flex-wrap ">
 
         @foreach ($table as $item)
-            <a href="@route('table.edit')/?tableId={{$item->id}}"><div style="background-color: green; width: 150px; height:150px; margin: 30px">
+            <a href="@route('table.edit')/?tableId={{$item->id}}">
+                <div class="d-flex justify-content-center align-items-center text-center" style="background-color: green; width: 150px; height:150px; margin: 30px">
                 <h2> {{ $item->title }} </h2>
-                <a href="@route('col.index')/?tableId={{$item->id}}">Ajouter une colonne</a>
-            </div></a>
+                </div>
+            </a>
         @endforeach
     </div>
 </div>
