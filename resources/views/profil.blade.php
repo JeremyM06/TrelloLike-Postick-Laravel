@@ -6,6 +6,7 @@
 
 
 
+
 <div class="d-flex flex-wrap " style="display: flex;justify-content: center;align-items: center;">
 
     <div class="card">
@@ -46,12 +47,12 @@
                         @csrf
 
                         <p class="card-text" style="font-family: 'Dancing Script', cursive;">Votre Nom : </p>
-                        <input type="text" name="name" value="{{ $item->name }}">
+                        <input type="text" name="name">
 
                         <br>
                         <br>
                         <p class="card-text" style="font-family: 'Dancing Script', cursive;">Votre Email : </p>
-                        <input type="email" name="email" value="{{ $item->email }}">
+                        <input type="email" name="email">
                         <br>
                         <br>
                         <p class="card-text" style="font-family: 'Dancing Script', cursive;">Votre nouveau mot de passe : </p>
@@ -67,6 +68,7 @@
                         <input type="submit" class="btn btn-primary" value="Enregistrer">
                     </div>
             </form>
+
             @endforeach
 
           </div>

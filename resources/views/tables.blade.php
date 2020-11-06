@@ -40,7 +40,7 @@
         <input type="hidden" name="tableId" value="{{ $table }}">
         <input type="submit">
     </form>
-<p> {{ $value->id }} </p>
+
 
 Macarte
 
