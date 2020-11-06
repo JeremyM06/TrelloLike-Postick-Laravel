@@ -71,9 +71,12 @@ class TableController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit(Request $request)
     {
-        return view('tables');
+
+        return view('tables', [
+            'cols' => Col::all()->where('table_id', $request->tableId)
+        ]);
     }
 
     /**
