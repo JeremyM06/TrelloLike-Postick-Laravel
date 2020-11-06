@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Table;
 use App\Col;
+use App\Card;
 
 
 class TableController extends Controller
@@ -73,9 +74,11 @@ class TableController extends Controller
      */
     public function edit(Request $request)
     {
-
         return view('tables', [
-            'cols' => Col::all()->where('table_id', $request->tableId)
+            'table' => $request->tableId,
+            'cols' => Col::all()->where('table_id', $request->tableId),
+            'cards' => Card::all(),
+
         ]);
     }
 
