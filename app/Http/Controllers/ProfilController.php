@@ -44,12 +44,15 @@ class ProfilController extends Controller
 
     public function update(Request $request)
     {
+
         $request->validate([
             'name' => 'nullable|string|max:255',
             'email' => 'nullable|string|email|max:255|unique:users',
             'password' => 'nullable|string|min:3|confirmed',
+            'photo' => 'nullable',
 
         ]);
+
         $user = Auth::user();
 
         if ($request->name) {
@@ -64,6 +67,12 @@ class ProfilController extends Controller
         if ($request->password) {
             $user->password = Hash::make($request->password);
         }
+
+        if ($request->photo) {
+            $user->photo = $request->photo;
+        }
+
+
 
 
         $user->save();

@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+    Mes tableaux
+@endsection
 
 @section('content')
 <div class="container">
@@ -34,7 +36,7 @@
   </div>
 
     <div class="d-flex flex-wrap ">
-
+{{-- Affichage des tableaux --}}
         @foreach ($table as $item)
             <a href="@route('table.edit')/?tableId={{$item->id}}">
                 <div class="d-flex justify-content-center align-items-center text-center" style="background-color: green; width: 150px; height:150px; margin: 30px">

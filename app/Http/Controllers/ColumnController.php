@@ -35,14 +35,9 @@ class ColumnController extends Controller
     public function store(Request $request)
     {
         $col = new Col();
-
-        $col->title = $request->title;
+        $col->title = ucfirst($request->title);
         $col->table_id = $request->tableId;
         $col->save();
-        //$coltest = Col::all()->last();
-        //session(['coltest' => $coltest]);
-        //$value = session('coltest');
-        //dd($value);
         return back();
     }
 
@@ -75,9 +70,16 @@ class ColumnController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+
+        $col = Col::all()->where('id', $request->id)->first();
+
+        if ($request->colupdate) {
+            $col->title = ucfirst($request->colupdate);
+        }
+        $col->save();
+        return back();
     }
 
     /**
@@ -86,8 +88,11 @@ class ColumnController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+
+        $col = Col::all()->where('id', $request->id)->first();
+        $col->delete();
+        return back();
     }
 }

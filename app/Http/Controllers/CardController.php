@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Card;
+use App\Com;
 
 use Illuminate\Http\Request;
 
@@ -37,9 +38,9 @@ class CardController extends Controller
     public function store(Request $request)
     {
         $card = new Card();
-
         $card->title = $request->title;
         $card->col_id = $request->col_id;
+        $card->numberOfCom = 0;
         $card->save();
         return back();
     }
@@ -84,8 +85,10 @@ class CardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $card = Card::all()->where('id', $request->id)->first();
+        $card->delete();
+        return back();
     }
 }

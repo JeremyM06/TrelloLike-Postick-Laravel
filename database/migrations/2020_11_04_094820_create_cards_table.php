@@ -17,6 +17,7 @@ class CreateCardsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('col_id');
             $table->string('title');
+            $table->integer('numberOfCom');
             $table->timestamps();
         });
     }

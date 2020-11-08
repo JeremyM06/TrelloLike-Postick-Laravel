@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title> @yield('title') </title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -23,8 +23,9 @@
     </script>
     @yield('style')
 </head>
-<body>
+<body >
     <div id="app">
+
         <nav class="navbar navbar-expand-md navbar-light bg-success shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -53,6 +54,7 @@
                                 </li>
                             @endif
                         @else
+                        <img class="imgProfil" src="assets/images/{{ Auth::user()->photo }}.png" alt="profil">
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -79,11 +81,13 @@
             </div>
         </nav>
 
-        <main class="py-4" >
+        <main class="py-4">
 
             @yield('content')
 
         </main>
+        @include('layouts.footer')
+
     </div>
 </body>
 </html>
