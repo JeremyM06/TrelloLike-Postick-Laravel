@@ -30,9 +30,12 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 var app = new Vue({
     el: '#app',
     data: {
+
         show: false,
         colTitle: false,
         listCol: false,
+        listCard: false,
+        listCom: true,
         addListShow: false,
         x: 0,
         y: 0,
