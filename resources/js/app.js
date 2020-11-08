@@ -27,9 +27,28 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
+var app = new Vue({
     el: '#app',
     data: {
-        test: true,
+        show: false,
+        colTitle: false,
+        listCol: false,
+        addListShow: false,
+        x: 0,
+        y: 0,
+
+    },
+    methods: {
+        closeAll: function closeAll() {
+            this.show = false;
+            this.addListShow = false;
+        },
+        ghostMethod: function (event) {
+            this.x = event.pageX;
+            this.y = event.pageY;
+            this.addListShow = true,
+                console.log(this.x, this.y);
+
+        }
     }
 });
