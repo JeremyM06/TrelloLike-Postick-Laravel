@@ -48,10 +48,20 @@ class TableController extends Controller
         $table->title = $request->title;
         $table->user_id = $userCo->id;
         $table->save();
-        // dd(
-        //     $request,
-        //     $userCo
-        // );
+
+        $table = Table::all()->last();
+        $col = new Col();
+        $col->title = 'À faire';
+        $col->table_id = $table->id;
+        $col->save();
+        $col = new Col();
+        $col->title = 'En cours';
+        $col->table_id = $table->id;
+        $col->save();
+        $col = new Col();
+        $col->title = 'Urgent';
+        $col->table_id = $table->id;
+        $col->save();
 
         return back();
     }

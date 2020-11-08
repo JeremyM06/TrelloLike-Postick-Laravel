@@ -35,7 +35,6 @@ class ColumnController extends Controller
     public function store(Request $request)
     {
         $col = new Col();
-
         $col->title = ucfirst($request->title);
         $col->table_id = $request->tableId;
         $col->save();

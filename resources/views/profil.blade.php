@@ -35,7 +35,7 @@
     </div>
     <div class="acjaProfilImg">
 
-    <img style="width:150px;heigth:150px;" src="assets/images/{{ Auth::user()->photo }}.png" alt="">
+    {{-- <img style="width:150px;heigth:150px;" src="assets/images/{{ Auth::user()->photo }}.png" alt=""> --}}
 </div>
 </div>
 <form action="@route('profile.update')" method="POST">
@@ -68,7 +68,24 @@
                         <br>
                         <p class="card-text">Confirmer votre mot de passe : </p>
                         <input type="password" name="password_confirmation">
-
+{{-- Modif photo --}}
+                        <div class="btn-group">
+                            <button type="button" class="btn"><img style="width: 150px; heigth:150px;border-radius:100%;" src="assets/images/{{ $item->photo }}.png" alt=""></button>
+                            <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <div class="d-flex align-items-center">
+                                    @for ($i = 0; $i < 10; $i++)
+                                    <div class="dropdown-item">
+                                        <input type="radio" id="a{{$i}}" name="photo" value="{{$i}}" style="visibility: hidden">
+                                        <label for="a{{$i}}"><img style="width: 80px;heigth:80px;border-radius: 100px;" src="assets/images/{{$i}}.png" alt=""></label>
+                                    </div>
+                                    @endfor
+                            </div>
+                            </div>
+                          </div>
+{{-- fin modif photo --}}
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>

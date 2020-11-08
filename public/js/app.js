@@ -49827,6 +49827,7 @@
                     addListShow: false,
                     x: 0,
                     y: 0,
+                    photo: 0,
 
                 },
                 methods: {
