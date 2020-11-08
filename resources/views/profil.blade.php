@@ -30,7 +30,7 @@
                     <p class="card-text">Votre email : {{ $item->email }} </p>
             </div>
     @endforeach</p>
-        <p class="card-text"> Si vous souhaitez les modifier, cliquer sur " Mettre à jour votre profil". </p>
+        <p class="card-text" style="font-family: 'Dancing Script', cursive;"> Si vous souhaitez les modifier, cliquer sur " Mettre à jour votre profil". </p>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
         Mettre à jour votre profil
       </button>
