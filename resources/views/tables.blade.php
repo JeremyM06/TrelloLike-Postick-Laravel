@@ -75,13 +75,5 @@
         <input type="hidden" name="tableId" value="{{ $table }}">
         <input type="submit">
     </form>
-<<<<<<< HEAD
-
-
-Macarte
-
-id de mon tableau: {{ $table }}
-=======
->>>>>>> 0a2c47f754d080efcadaeaf652ae7b0e0873eb75
 
 @endsection
