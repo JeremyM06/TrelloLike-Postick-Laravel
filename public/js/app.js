@@ -49818,7 +49818,7 @@
             var app = new Vue({
                 el: '#app',
                 data: {
-
+                    partage: false,
                     show: false,
                     colTitle: false,
                     listCol: false,

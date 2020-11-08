@@ -15,7 +15,8 @@ class CreateComsTable extends Migration
     {
         Schema::create('coms', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->BigInteger('card_id')->onDelete('cascade');
+            $table->BigInteger('card_id');
+            $table->string('user_name')->default(NULL);
             $table->string('comment', 255);
             $table->timestamps();
         });
