@@ -35,15 +35,50 @@
     </div>
   </div>
 
-    <div class="d-flex flex-wrap ">
+    <div class="container-fluid">
 {{-- Affichage des tableaux --}}
-        @foreach ($table as $item)
-            <a href="@route('table.edit')/?tableId={{$item->id}}">
-                <div class="d-flex justify-content-center align-items-center text-center" style="background-color: green; width: 150px; height:150px; margin: 30px">
-                <h2> {{ $item->title }} </h2>
-                </div>
-            </a>
-        @endforeach
+        <div class="d-flex flex-wrap flex-2">
+            @foreach ($table as $item)
+                @if ($item->team == 0)
+                    <a href="@route('table.edit')/?tableId={{$item->id}}">
+                        <div class="d-flex justify-content-center align-items-center text-center" style="background-color: green; width: 150px; height:150px; margin: 30px">
+                            <h2> {{ $item->title }} </h2>
+                        </div>
+                    </a>
+                {{-- Debut Partage --}}
+                    <button v-on:click="partage =! partage" v-show="!partage" type="button" class="btn">Partager avec...</button>
+                    <button v-on:click="partage =! partage" v-show="partage">...</button>
+                        <div v-show="partage">
+                            <form action="@route('table.update')" method="GET">
+                                <label for="user">Entrez son mail</label>
+                                <input type="email" name="email">
+                                <input type="hidden" name="tableId" value="{{$item->id}}">
+                            </form>
+                        </div>
+                {{-- Fin Partage --}}
+                @endif
+            @endforeach
+        </div>
+        <div>
+            <h4>Mes tableaux partagés</h4>
+
+            @foreach ($table as $item)
+                @if ($item->team > 0)
+                    <a href="@route('table.edit')/?tableId={{$item->id}}">
+                        <div class="d-flex justify-content-center align-items-center text-center" style="background-color: green; width: 150px; height:150px; margin: 30px">
+                            <h2> {{ $item->title }} </h2>
+                        </div>
+                    </a>
+                @endif
+            @endforeach
+            @foreach ($tableTeam as $element)
+                <a href="@route('table.edit')/?tableId={{$element->id}}">
+                    <div class="d-flex justify-content-center align-items-center text-center" style="background-color: green; width: 150px; height:150px; margin: 30px">
+                    <h2> {{ $element->title }} </h2>
+                    </div>
+                </a>
+            @endforeach
+        </div>
     </div>
 </div>
 

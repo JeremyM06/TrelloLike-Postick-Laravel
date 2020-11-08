@@ -70,7 +70,7 @@
                         <input type="password" name="password_confirmation">
 {{-- Modif photo --}}
                         <div class="btn-group">
-                            <button type="button" class="btn"><img style="width: 150px; heigth:150px;border-radius:100%;" src="assets/images/{{ $item->photo }}.png" alt=""></button>
+                            <button type="button" class="btn"><img style="width: 150px; heigth:150px;border-radius:100%;" src="assets/images/{{ $item->photo }}.png" alt="image"></button>
                             <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               <span class="sr-only">Toggle Dropdown</span>
                             </button>
@@ -83,10 +83,11 @@
                                     </div>
                                     @endfor
                             </div>
-                            </div>
-                          </div>
+                        </div>
 {{-- fin modif photo --}}
                     </div>
+
+            </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
                         <input type="submit" class="btn btn-primary" value="Enregistrer">
@@ -95,9 +96,9 @@
 
             @endforeach
 
-          </div>
+            </div>
         </div>
-      </div>
+    </div>
 </form>
 
 @endsection
