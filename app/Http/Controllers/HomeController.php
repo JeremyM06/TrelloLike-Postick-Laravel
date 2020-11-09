@@ -28,7 +28,8 @@ class HomeController extends Controller
     {
         $user = Auth::user();
         if ($user->photo == NULL) {
-            $user->photo = ($user->id) % 10;
+
+            $user->photo = 'a' . (($user->id) % 10);
             $user->save();
         }
         header("Refresh: 2; URL=/table");

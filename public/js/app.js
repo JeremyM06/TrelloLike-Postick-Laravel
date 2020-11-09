@@ -49828,6 +49828,8 @@
                     x: 0,
                     y: 0,
                     photo: 0,
+                    mailShow: false,
+                    mail: "",
 
                 },
                 methods: {
@@ -49841,7 +49843,17 @@
                         this.addListShow = true,
                             console.log(this.x, this.y);
 
-                    }
+                    },
+                    isAMail: function (mail) {
+                        if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail) || mail == "") {
+                            this.mailShow = false;
+                            this.mailOk = true;
+                        } else {
+                            this.mailShow = true;
+                            this.mailOk = false;
+                        }
+                    },
+
                 }
             });
 

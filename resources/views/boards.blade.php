@@ -42,29 +42,34 @@
 
     <div class="container-fluid">
 {{-- Affichage des tableaux --}}
-        <div class="d-flex flex-wrap flex-2">
+        <div class="d-flex flex-wrap flex-2 my-2">
             @foreach ($table as $item)
                 @if ($item->team == 0)
+                <div class="d-flex flex-column mx-2 border">
                     <a href="@route('table.edit')/?tableId={{$item->id}}">
                         <div class="d-flex justify-content-center align-items-center text-center" style="background-color: green; width: 150px; height:150px; margin: 30px">
                             <h2> {{ $item->title }} </h2>
                         </div>
                     </a>
+
                 {{-- Debut Partage --}}
+                <div>
                     <button v-on:click="partage =! partage" v-show="!partage" type="button" class="btn">Partager avec...</button>
-                    <button v-on:click="partage =! partage" v-show="partage">...</button>
+                    <button v-on:click="partage =! partage" v-show="partage">Partager</button>
                         <div v-show="partage">
                             <form action="@route('table.update')" method="GET">
-                                <label for="user">Entrez son mail</label>
-                                <input type="email" name="email">
+                                <label for="user"> {{ $item->title }} avec</label>
+                                <input type="email" name="email" placeholder="mail">
                                 <input type="hidden" name="tableId" value="{{$item->id}}">
                             </form>
                         </div>
+                    </div>
+                </div>
                 {{-- Fin Partage --}}
                 @endif
             @endforeach
         </div>
-        <div>
+        <div class="my-2 mx-2">
             <h4>Mes tableaux partagés</h4>
 
             @foreach ($table as $item)
