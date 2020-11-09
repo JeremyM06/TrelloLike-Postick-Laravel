@@ -1,16 +1,53 @@
 @extends('layouts.app')
+@section('title')
+    @foreach ($tables as $item)
+        {{$item->title}} | Postick
+    @endforeach
+@endsection
 
 @section('style')
 <style>
-.btn.group{
-    background-color: white;
+    p {
+        font-family: 'Satisfy', cursive;
+        font-size: 1.3em;
+    }
+    label {
+        font-family: 'Satisfy', cursive;
+        font-size: 1em;
+    }
+.btn-group {
+        width: 210px;
+
+}
+
+input[type=submit] {
+ width:90px;
+ margin-left:5px;
+ border-radius: 10px;
+ background-color: wheat;
+ box-shadow:1px 1px 1px black;
+ cursor:pointer;
+ }
+ input[type=submit]:hover {
+ background-color:#5ef440;
+ }
+input[type=submit]:active {
+ background-color:#5ef440;
+ box-shadow:1px 1px 1px #D83F3D inset;
+}
+.button-add {
+ width:150px;
+ margin-left:5px;
+ border-radius: 10px;
+ background-color: wheat;
+ box-shadow:1px 1px 1px black;
+ cursor:pointer;
+ font-family: 'Satisfy', cursive;
+}
+.label-user {
+    color: ghostwhite;
 }
 </style>
-@section('title')
-    @foreach ($tables as $item)
-        {{$item->title}}
-    @endforeach
-@endsection
 @section('content')
 <div v-on:dblclick="ghostMethod($event)">
     {{-- ghoslist --}}
@@ -73,9 +110,9 @@
 
 
     {{-- Modal --}}
-    <div class="modal fade" id="a{{ $card->id }}" tabindex="-1" role="dialog" aria-labelledby="a{{ $card->id }}Title" aria-hidden="true">
+    <div class="modal fade" id="a{{ $card->id }}" tabindex="-1" role="dialog" aria-labelledby="a{{ $card->id }}Title" aria-hidden="true" >
         <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
+        <div class="modal-content" >
             <div class="modal-header">
             <h5 v-show="!cardTitle" v-on:click="cardTitle =! cardTitle" class="modal-title cardScale" id="exampleModalLongTitle"> {{ $card->title }} </h5>
 {{-- Changement title card --}}
@@ -90,25 +127,21 @@
             </div>
             @foreach ($coms as $com)
             @if ($com->card_id == $card->id)
-            <div class="container-fluid">
-                <div class="row ">
+            <div class="container-fluid my-1">
+                <div class="row">
                     <div class="col-3">
                         <div class="d-flex justify-content-between mx-2">
                             <p class="acja-auteur"> Auteur:      </p>
                             <p style="text-indent:20px"> {{ $com->user_name }}</p>
                         </div>
                     </div>
-                    <div class="col-5">
-                        <div class="d-flex justify-content-between mx-2 acja-com-lign">
+                    <div class="col-5 justify-content-center acja-com-lign">
                             <p class="acja-com-content">{{ $com->comment }}</p>
-                        </div>
                     </div>
-                    <div class="col-3">
-                        <div class="d-flex justify-content-between mx-2">
+                    <div class="col-3 justify-content-center">
                             {{ $com->created_at->format('d-m-y H:i') }}
-                        </div>
                     </div>
-                        <div class="col">
+                        <div class="col justify-content-between">
                             <div class="d-flex justify-content-between mx-2" >
                             <a href="@route('com.delete')?id={{ $com->id }}&card_id={{ $com->card_id }}"><img class="acja-del" src="assets/symbols/basket.png"/><br></a>
                         </div>
@@ -147,22 +180,21 @@
         </div>
         @endforeach
 
-        <button v-on:click="show =! show" v-show="!show" style="max-height: 30px">Ajouter une liste</button>
+    {{-- <button v-on:click="show =! show" v-show="!show" class="button-add" >Double click pour ajouter une liste</button> --}}
 
-            <div >
-                <form v-show="show"  action="@route('col.store')" method="POST" v-on:submit="show = false">
-                    @csrf
-                    <label for="">Ajouter une Liste</label>
-                    <input type="text" name="title">
-                    <input type="hidden" name="tableId" value="{{ $table }}">
-                    <input type="submit">
-                    <div style="height: 100%;width: 100%; position: absolute; z-index:1;" v-on:click="show = false"></div>
-                </form>
-            </div>
-        </div>
-    {{-- Choose yours background --}}
-
-    <div class="btn-group fixed-bottom">
+        {{-- <div class="d-flex" style="z-index: 100;">
+            <form v-show="show"  action="@route('col.store')" method="POST" v-on:submit="show = false">
+                @csrf
+                <label class="label-user" for="">Ajouter une Liste</label>
+                <input type="text" name="title">
+                <input type="hidden" name="tableId" value="{{ $table }}">
+                <input type="submit">
+                <div style="height: 100%;width: 100%; position: absolute; z-index:1;" v-on:click="show = false"></div>
+            </form>
+        </div> --}}
+    {{-- Choose your background --}}
+    <h4 class="bg-warning" style="box-shadow: black 3px 3px 3px;max-height: 30px; border-radius: 10px; position:absolute; top: 80px; right: 10px">Double click pour ajouter une liste</h4>
+    <div class="btn-group acjatest">
         <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choisir votre image de fond
         </button>
         <div class="dropdown-menu">

@@ -9,12 +9,13 @@
         background-size: cover;
     }
     p {
-        font-family: 'Dancing Script', cursive;
+        font-family: 'Courgette', cursive;
+        font-size: 1.5em;
     }
 
 </style>
 @section('content')
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center my-5">
     <div class="d-flex flex-column " style="display: flex;justify-content: center;align-items: center;">
         <div class="card">
             <h5 class="card-header" style="text-align: center;background-color: lightgrey;">Votre Profil</h5>
@@ -34,10 +35,6 @@
             </div>
         </div>
     </div>
-    <div class="acjaProfilImg">
-
-    {{-- <img style="width:150px;heigth:150px;" src="assets/images/{{ Auth::user()->photo }}.png" alt=""> --}}
-</div>
 </div>
 <form action="@route('profile.update')" method="POST">
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -63,7 +60,6 @@
                         <p class="card-text" >Votre Email : </p>
                         <input v-model="mail"  type="text" v-on:keyup="isAMail(mail)" class="form-control" :class="{mjjalertform : mailShow}" name="email" placeholder="{{ $item->email }}">
                         <span class="textFormAlert" v-show="mailShow">Le mail n'est pas conforme</span>
-                        <br>
                         <br>
                         <p class="card-text" >Votre nouveau mot de passe : </p>
                         <input v-model="password" v-on:keyup="isAPassword(password)" type="password" name="password" :class="{mjjalertform : passShow}">
