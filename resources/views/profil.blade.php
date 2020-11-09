@@ -55,11 +55,13 @@
 
                         <p class="card-text" >Votre Nom : </p>
                         <input type="text" name="name" placeholder="{{ $item->name }}">
+                        <h5></h5>
 
                         <br>
                         <br>
                         <p class="card-text" >Votre Email : </p>
-                        <input type="email" name="email" placeholder="{{ $item->email }}">
+                        <input v-model="mail"  type="text" v-on:keyup="isAMail(mail)" class="form-control" :class="{mjjalertform : mailShow}" name="email" placeholder="{{ $item->email }}">
+                        <span class="textFormAlert" v-show="mailShow">Le mail n'est pas conforme</span>
                         <br>
                         <br>
                         <p class="card-text" >Votre nouveau mot de passe : </p>
@@ -78,8 +80,8 @@
                                 <div class="d-flex align-items-center">
                                     @for ($i = 0; $i < 10; $i++)
                                     <div class="dropdown-item">
-                                        <input type="radio" id="a{{$i}}" name="photo" value="{{$i}}" style="visibility: hidden">
-                                        <label for="a{{$i}}"><img style="width: 80px;heigth:80px;border-radius: 100px;" src="assets/images/{{$i}}.png" alt=""></label>
+                                        <input type="radio" id="a{{$i}}" name="photo" value="a{{$i}}" style="visibility: hidden">
+                                        <label for="a{{$i}}"><img style="width: 80px;heigth:80px;border-radius: 100px;" src="assets/images/a{{$i}}.png" alt=""></label>
                                     </div>
                                     @endfor
                             </div>

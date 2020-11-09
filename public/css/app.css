@@ -10960,6 +10960,10 @@ a:hover {
     padding: 0 5px;
     margin-top: 5px;
 }
+.acjaCardStyle:hover{
+    background-color: rgb(226, 226, 226);
+
+}
 .acjaCardStyle [div]{
     text-align: left;
     border: none;
@@ -11006,4 +11010,14 @@ left: 40%;
     padding: 10px;
     background-color: gray;
     height: 50px;
+}
+/************VERIF FRONT***********/
+
+.textFormAlert{
+    color:red;
+    font-size: 20px;
+    font-weight: bold;
+}
+.mjjalertform{
+    border: red solid 3px !important;
 }
