@@ -1,4 +1,13 @@
 @extends('layouts.app')
+@section('style')
+<style>
+    body{
+
+	background-image: url("https://proaugust.com/images/slider/start1.jpg");
+	background-position: center center;
+}
+</style>
+
 @section('title')
     Mes tableaux
 @endsection
@@ -41,8 +50,9 @@
             @foreach ($table as $item)
                 @if ($item->team == 0)
                 <div class="d-flex flex-column mx-2 border">
-                    <a href="@route('table.edit')/?tableId={{$item->id}}" >
-                        <div class="d-flex justify-content-center align-items-center text-center" style="background-color: rgb(169, 255, 169); width: 150px; height:150px; margin: 30px" style="background-image: url('assets/images/{{$item->image}}.jpg')">
+                    <a href="@route('table.edit')/?tableId={{$item->id}}">
+                        <div class="d-flex justify-content-center align-items-center text-center"  style="background-image: url('assets/images/{{$item->image}}.jpg');background-size: cover;"
+                            >
                             <h2> {{ $item->title }} </h2>
                         </div>
                     </a>
@@ -89,3 +99,4 @@
 </div>
 
 @endsection
+
