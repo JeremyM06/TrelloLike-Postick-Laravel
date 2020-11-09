@@ -2,12 +2,21 @@
 
 @section('style')
 <style>
-    .btn-group {
+    p {
+        font-family: 'Satisfy', cursive;
+        font-size: 2em;
+    }
+    label {
+        font-family: 'Satisfy', cursive;
+        font-size: 1em;
+    }
+.btn-group {
         width: 210px;
 
-    }
+}
+
 input[type=submit] {
- width:75px;
+ width:90px;
  margin-left:5px;
  border-radius: 10px;
  background-color: wheat;
@@ -28,6 +37,11 @@ input[type=submit]:active {
  background-color: wheat;
  box-shadow:1px 1px 1px black;
  cursor:pointer;
+ font-family: 'Satisfy', cursive;
+}
+.label-user {
+    color: ghostwhite;
+
 }
 </style>
 @section('title')
@@ -136,7 +150,7 @@ input[type=submit]:active {
         <div >
             <form v-show="show"  action="@route('col.store')" method="POST" v-on:submit="show = false">
                 @csrf
-                <label for="">Ajouter une Liste</label>
+                <label class="label-user" for="">Ajouter une Liste</label>
                 <input type="text" name="title">
                 <input type="hidden" name="tableId" value="{{ $table }}">
                 <input type="submit">

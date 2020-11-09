@@ -9,7 +9,8 @@
         background-size: cover;
     }
     p {
-        font-family: 'Dancing Script', cursive;
+        font-family: 'Courgette', cursive;
+        font-size: 1.5em;
     }
 
 </style>

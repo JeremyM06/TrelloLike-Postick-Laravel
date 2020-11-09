@@ -8,7 +8,9 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
 
 
         <!-- Styles -->
@@ -17,7 +19,7 @@
                 background-size: cover;
                 background-position: center center;
                 background-image: url(https://www.itl.cat/pics/b/19/195433_postit-wallpaper.jpg);
-                font-family: 'Nunito', sans-serif;
+                font-family: 'Dancing Script', cursive;
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
@@ -41,6 +43,11 @@
                 position: absolute;
                 right: 10px;
                 top: 18px;
+
+            }
+            .button-accueil {
+                font-family: 'Satisfy', cursive;
+                font-size: 20px;
             }
 
             .content {
@@ -54,8 +61,7 @@
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
+                font-weight: 800;
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
@@ -78,7 +84,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="@route('table')" style="color: wheat;">Mes tableaux</a>
+                        <a href="@route('table')" class="button-accueil" style="color: wheat;">Mes tableaux</a>
                     @else
 
                         <a href="@route('login')"style="color: wheat;">{{ __('Login') }} </a>

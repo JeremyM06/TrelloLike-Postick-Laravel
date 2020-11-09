@@ -90,3 +90,6 @@ Route::get('/homemaster', 'UserController@update')->name('homemaster.update');
 
 
 //Ligne CLI pour cascade <  composer require shiftonelabs/laravel-cascade-deletes
+
+
+// Test mail

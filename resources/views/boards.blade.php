@@ -7,7 +7,10 @@
     background-position: center center;
 }
 .my-2  h4 {
-    color: wheat;
+    color: #F4A460;
+    font-family: 'Satisfy', cursive;
+    font-size: 3em;
+    font-weight: bold;
 
 }
 .d-flex {
@@ -27,6 +30,9 @@
  background-color: wheat;
  box-shadow:1px 1px 1px black;
  cursor:pointer;
+ font-family: 'Satisfy', cursive;
+ font-size: 1em;
+ font-weight: 800
 }
 .label-user {
     color: ghostwhite;
