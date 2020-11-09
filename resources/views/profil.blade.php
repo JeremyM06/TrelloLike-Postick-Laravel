@@ -26,19 +26,12 @@
                         <p class="card-text">Votre email : {{ $item->email }} </p>
                     </div>
                 @endforeach
+                <br><br>
                 <p class="card-text"> Si vous souhaitez les modifier, cliquer sur " Mettre à jour votre profil". </p>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
                 Mettre à jour votre profil
                 </button>
             </div>
-<<<<<<< HEAD
-    @endforeach</p>
-        <p class="card-text" style="font-family: 'Dancing Script', cursive;"> Si vous souhaitez les modifier, cliquer sur " Mettre à jour votre profil". </p>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-        Mettre à jour votre profil
-      </button>
-=======
->>>>>>> db5881639e88bae9436fe634043dddd9f2d9f14b
         </div>
     </div>
     <div class="acjaProfilImg">

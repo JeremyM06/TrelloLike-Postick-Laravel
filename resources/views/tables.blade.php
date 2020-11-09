@@ -1,4 +1,15 @@
 @extends('layouts.app')
+
+@section('style')
+<style>
+    body{
+        background-image: url("https://i.pinimg.com/originals/ab/0e/61/ab0e6142a4c03a09db9f39939aef9519.jpg");
+        background-size: cover;
+
+
+    }
+
+</style>
 @section('title')
     @foreach ($tables as $item)
         {{$item->title}}

@@ -1,4 +1,12 @@
 @extends('layouts.app')
+@section('style')
+<style>
+    body{
+
+	background-image: url("https://proaugust.com/images/slider/start1.jpg");
+	background-position: center center;
+}
+</style>
 @section('title')
     Mes tableaux
 @endsection
@@ -6,10 +14,7 @@
 @section('content')
 <div class="container">
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-    Ajouter un nouveau tableau
-  </button>
+
 
   <!-- Modal -->
   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
