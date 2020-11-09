@@ -49830,7 +49830,6 @@
                     photo: 0,
                     mailShow: false,
                     mail: "",
-
                 },
                 methods: {
                     closeAll: function closeAll() {
@@ -49845,7 +49844,7 @@
 
                     },
                     isAMail: function (mail) {
-                        if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail) || mail == "") {
+                        if (/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(mail) || mail == "") {
                             this.mailShow = false;
                             this.mailOk = true;
                         } else {
@@ -49853,7 +49852,6 @@
                             this.mailOk = false;
                         }
                     },
-
                 }
             });
 

@@ -41,8 +41,8 @@
             @foreach ($table as $item)
                 @if ($item->team == 0)
                 <div class="d-flex flex-column mx-2 border">
-                    <a href="@route('table.edit')/?tableId={{$item->id}}">
-                        <div class="d-flex justify-content-center align-items-center text-center" style="background-color: green; width: 150px; height:150px; margin: 30px">
+                    <a href="@route('table.edit')/?tableId={{$item->id}}" >
+                        <div class="d-flex justify-content-center align-items-center text-center" style="background-color: rgb(169, 255, 169); width: 150px; height:150px; margin: 30px" style="background-image: url('assets/images/{{$item->image}}.jpg')">
                             <h2> {{ $item->title }} </h2>
                         </div>
                     </a>
@@ -54,7 +54,8 @@
                         <div v-show="partage">
                             <form action="@route('table.update')" method="GET">
                                 <label for="user"> {{ $item->title }} avec</label>
-                                <input type="email" name="email" placeholder="mail">
+                                <input v-model="mail"  type="text" v-on:keyup="isAMail(mail)" :class="{mjjalertform : mailShow}" name="email" placeholder="mail">
+                                <p class="textFormAlert" v-show="mailShow">Le mail n'est pas conforme</p>
                                 <input type="hidden" name="tableId" value="{{$item->id}}">
                             </form>
                         </div>

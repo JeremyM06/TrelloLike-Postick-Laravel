@@ -80,7 +80,7 @@
                                 <div class="d-flex align-items-center">
                                     @for ($i = 0; $i < 10; $i++)
                                     <div class="dropdown-item">
-                                        <input type="radio" id="a{{$i}}" name="photo" value="a{{$i}}" style="visibility: hidden">
+                                        <input type="radio" id="a{{$i}}" name="photo" value="a{{$i}}" style="visibility: hidden" onclick="this.form.submit()">
                                         <label for="a{{$i}}"><img style="width: 80px;heigth:80px;border-radius: 100px;" src="assets/images/a{{$i}}.png" alt=""></label>
                                     </div>
                                     @endfor
