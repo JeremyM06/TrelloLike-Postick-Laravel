@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Com;
+use App\Card;
 
 class CommentsController extends Controller
 {
@@ -35,11 +36,15 @@ class CommentsController extends Controller
      */
     public function store(Request $request)
     {
+        $card = Card::all()->where('id', $request->card_id)->first();
+        // dd($card);
         $com = new Com();
 
         $com->comment = $request->title;
         $com->card_id = $request->card_id;
         $com->save();
+        $card->numberOfCom++;
+        $card->save();
         return back();
     }
 
@@ -83,8 +88,14 @@ class CommentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+
+        $card = Card::all()->where('id', $request->card_id)->first();
+        $com = Com::all()->where('id', $request->id)->first();
+        $com->delete();
+        $card->numberOfCom--;
+        $card->save();
+        return back();
     }
 }

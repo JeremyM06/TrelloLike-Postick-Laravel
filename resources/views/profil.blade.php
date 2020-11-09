@@ -1,37 +1,44 @@
 @extends('layouts.app')
 
 
+@section('style')
+<style>
+    body{
+        background-image: url(https://1.bp.blogspot.com/-TrTUxaaohYs/WGsrYjCaI2I/AAAAAAAASSM/npnrYplkVZI4eikM-xyuRnMNNVpn-PscwCLcB/s1600/Nexus%2BDesktop%2BWallpapers%2B10.jpg);
+        /* background-position: center center; */
+        background-size: cover;
+    }
+    p {
+        font-family: 'Dancing Script', cursive;
+    }
 
+</style>
 @section('content')
-
-
-
-
-<div class="d-flex flex-wrap " style="display: flex;justify-content: center;align-items: center;">
-
-    <div class="card">
-        <h5 class="card-header" style="text-align: center;background-color: lightgrey;">Votre Profil</h5>
-        <div class="card-body">
-          <h5 class="card-title" style="text-align: center;">Informations actuelles</h5>
-          <p> @foreach ($user as $item)
-            <div>
-                <p class="card-text">Votre nom : {{ $item->name }} </p>
-                    <p class="card-text">Votre email : {{ $item->email }} </p>
+<div class="d-flex justify-content-center">
+    <div class="d-flex flex-column " style="display: flex;justify-content: center;align-items: center;">
+        <div class="card">
+            <h5 class="card-header" style="text-align: center;background-color: lightgrey;">Votre Profil</h5>
+            <div class="card-body" >
+            <h5 class="card-title" style="text-align: center;">Informations actuelles</h5>
+            @foreach ($user as $item)
+                    <div>
+                        <p class="card-text">Votre nom : {{ $item->name }} </p>
+                        <p class="card-text">Votre email : {{ $item->email }} </p>
+                    </div>
+                @endforeach
+                <p class="card-text"> Si vous souhaitez les modifier, cliquer sur " Mettre à jour votre profil". </p>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                Mettre à jour votre profil
+                </button>
             </div>
-    @endforeach</p>
-        <p class="card-text"> Si vous souhaitez les modifier, cliquer sur " Mettre à jour votre profil". </p>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-        Mettre à jour votre profil
-      </button>
         </div>
-      </div>
+    </div>
+    <div class="acjaProfilImg">
 
-
+    <img style="width:150px;heigth:150px;" src="assets/images/{{ Auth::user()->photo }}.png" alt="">
 </div>
-
+</div>
 <form action="@route('profile.update')" method="POST">
-
-
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
@@ -46,20 +53,20 @@
                     <div class="modal-body">
                         @csrf
 
-                        <p class="card-text" style="font-family: 'Dancing Script', cursive;">Votre Nom : </p>
-                        <input type="text" name="name">
+                        <p class="card-text" >Votre Nom : </p>
+                        <input type="text" name="name" placeholder="{{ $item->name }}">
 
                         <br>
                         <br>
-                        <p class="card-text" style="font-family: 'Dancing Script', cursive;">Votre Email : </p>
-                        <input type="email" name="email">
+                        <p class="card-text" >Votre Email : </p>
+                        <input type="email" name="email" placeholder="{{ $item->email }}">
                         <br>
                         <br>
-                        <p class="card-text" style="font-family: 'Dancing Script', cursive;">Votre nouveau mot de passe : </p>
+                        <p class="card-text" >Votre nouveau mot de passe : </p>
                         <input type="password" name="password">
                         <br>
                         <br>
-                        <p class="card-text" style="font-family: 'Henny Penny', cursive;">Confirmer votre mot de passe : </p>
+                        <p class="card-text">Confirmer votre mot de passe : </p>
                         <input type="password" name="password_confirmation">
 
                     </div>

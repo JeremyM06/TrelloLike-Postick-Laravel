@@ -22,16 +22,28 @@ Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');
 
 //----Boards & Création de tables
 Route::get('/table', 'TableController@index')->middleware('auth')->name('table');
-Route::post('/table', 'TableController@store')->name('table.store');
+Route::post('/table', 'TableController@store')->middleware('auth')->name('table.store');
 
 //--- Table=>col/cards/com ---
 Route::get('/detailsTable', 'TableController@edit')->middleware('auth')->name('table.edit');
 //Create col
-Route::post('/col', 'ColumnController@store')->name('col.store');
+Route::post('/col', 'ColumnController@store')->middleware('auth')->name('col.store');
+//Change col
+Route::any('/col/change', 'ColumnController@update')->middleware('auth')->name('col.update');
+//Delete card
+Route::get('/col/delete', 'ColumnController@destroy')->middleware('auth')->name('col.delete');
+
+
 //Create card
-Route::post('/card', 'CardController@store')->name('card.store');
+Route::post('/card', 'CardController@store')->middleware('auth')->name('card.store');
+//Delete Card
+Route::get('/card/delete', 'CardController@destroy')->middleware('auth')->name('card.delete');
+
 //Create comments
-Route::post('/com', 'CommentsController@store')->name('com.store');
+Route::post('/com', 'CommentsController@store')->middleware('auth')->name('com.store');
+//Create comments
+Route::get('/com/delete', 'CommentsController@destroy')->middleware('auth')->name('com.delete');
+
 
 
 
@@ -68,3 +80,6 @@ Route::get('/homemaster', 'UserController@update')->name('homemaster.update');
 //     Route::get('/col', 'ColumnController@index')->name('col.index');
 //     Route::post('/col', 'ColumnController@store')->name('col.store');
 // });
+
+
+//Ligne CLI pour cascade <  composer require shiftonelabs/laravel-cascade-deletes

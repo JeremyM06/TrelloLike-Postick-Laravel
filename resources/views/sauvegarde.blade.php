@@ -24,73 +24,25 @@
 
             @foreach ($cards as $card)
                 @if ($card->col_id == $col->id)
-<<<<<<< HEAD
-                    <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-    <div class="text-center">
-        {{ $card->title }}
-    </div>
-  </button>
-=======
                 <div class="acjaCardStyle">
-                    <div class="d-flex flex-column" style="width: 90%;text-align: left;" data-toggle="modal" data-target="#a{{ $card->id }}">
-                        <div class="my-2">
-                            {{ $card->title }}
-
-                        </div>
-                        <div>
-
-                            @if ($card->numberOfCom > 0 )
-                            <img class="imgcom" src="assets/symbols/com.png" alt="symbol comment">
-                                {{ $card->numberOfCom }}
-                            @endif
-                        </div>
-
-                    </div>
-                      <div class="acjaCardStyleImg">
+                    {{ $card->title }}
+                    <div>
                         <img v-on:click="listCard =! listCard" src="assets/symbols/pencil.png" alt="modifier">
                         <a href="@route('card.delete')?id={{ $card->id }}" v-show="listCard"><button>supprimer</button></a>
                     </div>
                 </div>
-                                    <!-- Button trigger modal -->
 
->>>>>>> 0284b6a8bc89f0dd06b0dc1a8d8d406467fca478
-
-   {{-- Modal --}}
-  <div class="modal fade" id="a{{ $card->id }}" tabindex="-1" role="dialog" aria-labelledby="a{{ $card->id }}Title" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle"> {{ $card->title }} </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
         @foreach ($coms as $com)
             @if ($com->card_id == $card->id)
-            <div class="d-flex justify-content-between mx-2">
-                 {{ $com->comment }}
-                <a href="@route('com.delete')?id={{ $com->id }}&card_id={{ $com->card_id }}" ><button>supprimer</button></a>
-            </div>
+                {{ $com->comment }}
             @endif
         @endforeach
 
         <form action="@route('com.store')" method="POST">
-                <div class="modal-body">
-                    @csrf
-                    <input type="text" name="title" placeholder="Laissez un commentaire">
-                    <input type="hidden" name="card_id" value=" {{ $card->id }} ">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                    <input type="submit" class="btn btn-primary" value="Enregistrer">
-                </div>
+                @csrf
+                <input type="text" name="title">
+                <input type="hidden" name="card_id" value=" {{ $card->id }} ">
         </form>
-
-      </div>
-    </div>
-  </div>
-
                 @endif
             @endforeach
 <hr>
@@ -105,17 +57,6 @@
     </div>
     @endforeach
 
-<<<<<<< HEAD
-    <hr><hr><hr>
-</div>
-    <form action="@route('col.store')" method="POST">
-        @csrf
-        <label for="">Ajouter une Liste</label>
-        <input type="text" name="title">
-        <input type="hidden" name="tableId" value="{{ $table }}">
-        <input type="submit">
-    </form>
-=======
     <button v-on:click="show =! show" v-show="!show" style="max-height: 30px">Ajouter une liste</button>
 
         <div >
@@ -129,7 +70,6 @@
             </form>
         </div>
     </div>
->>>>>>> 0284b6a8bc89f0dd06b0dc1a8d8d406467fca478
 
     <div  v-show="addListShow" class="ghostList" v-bind:style="{ top: y + 'px', left: x + 'px' }">
         <form  action="@route('col.store')" method="POST" v-on:submit="addListShow = false">
