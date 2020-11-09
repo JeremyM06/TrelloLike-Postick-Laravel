@@ -37,6 +37,10 @@ class CommentsController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'string|min:1|max:255',
+        ]);
+
         $card = Card::all()->where('id', $request->card_id)->first();
         $com = new Com();
         $com->comment = $request->title;
@@ -47,6 +51,7 @@ class CommentsController extends Controller
         $card->save();
         return back();
     }
+
 
     /**
      * Display the specified resource.

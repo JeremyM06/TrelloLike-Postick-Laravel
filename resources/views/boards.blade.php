@@ -49,14 +49,13 @@
         <div class="d-flex flex-wrap flex-2 my-2">
             @foreach ($table as $item)
                 @if ($item->team == 0)
-                <div class="d-flex flex-column mx-2 border">
+                <div class="d-flex flex-column align-items-center mx-2 border acjaBoards" style="background-image: url('assets/images/{{$item->image}}.jpg');background-size: cover;">
+                    <a href="@route('table.destroy')/?tableId={{$item->id}}">supprimer</a>
                     <a href="@route('table.edit')/?tableId={{$item->id}}">
-                        <div class="d-flex justify-content-center align-items-center text-center"  style="background-image: url('assets/images/{{$item->image}}.jpg');background-size: cover;"
-                            >
+                        <div class="d-flex justify-content-center align-items-center text-center"  style="background-image: url('assets/images/{{$item->image}}.jpg');background-size: cover;width: 200px;heigth: 200px;padding:20px;margin:10px">
                             <h2> {{ $item->title }} </h2>
                         </div>
                     </a>
-
                 {{-- Debut Partage --}}
                 <div>
                     <button v-on:click="partage =! partage" v-show="!partage" type="button" class="btn">Partager avec...</button>
@@ -77,23 +76,29 @@
         </div>
         <div class="my-2 mx-2">
             <h4>Mes tableaux partagés</h4>
-
+            <div class="d-flex flex-column" style="width: 250px; min-heigth: 500px;">
             @foreach ($table as $item)
                 @if ($item->team > 0)
+                    @if ($item->user_id == Auth::user()->id)
+                    <a href="@route('table.destroy')/?tableId={{$item->id}}">Supprimer</a>
+                    @endif
                     <a href="@route('table.edit')/?tableId={{$item->id}}">
-                        <div class="d-flex justify-content-center align-items-center text-center" style="background-color: green; width: 150px; height:150px; margin: 30px">
+                        <div class="d-flex justify-content-center align-items-center text-center" style="background-image: url('assets/images/{{$item->image}}.jpg');background-size: cover;">
                             <h2> {{ $item->title }} </h2>
                         </div>
                     </a>
                 @endif
             @endforeach
+            </div>
+            <div class="d-flex flex-column" style="max-width: 250px; min-heigth: 250px;">
             @foreach ($tableTeam as $element)
                 <a href="@route('table.edit')/?tableId={{$element->id}}">
-                    <div class="d-flex justify-content-center align-items-center text-center" style="background-color: green; width: 150px; height:150px; margin: 30px">
+                    <div class="d-flex justify-content-center align-items-center text-center" style="background-image: url('assets/images/{{$item->image}}.jpg');background-size: cover;">
                     <h2> {{ $element->title }} </h2>
                     </div>
                 </a>
             @endforeach
+        </div>
         </div>
     </div>
 </div>

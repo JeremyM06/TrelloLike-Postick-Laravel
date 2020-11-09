@@ -132,8 +132,10 @@ class TableController extends Controller
     }
 
 
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $table = Table::all()->where('id', $request->tableId)->first();
+        $table->delete();
+        return back();
     }
 }

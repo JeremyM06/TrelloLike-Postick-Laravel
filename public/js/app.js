@@ -49821,6 +49821,7 @@
                     partage: false,
                     show: false,
                     colTitle: false,
+                    cardTitle: false,
                     listCol: false,
                     listCard: false,
                     listCom: true,
@@ -49830,11 +49831,16 @@
                     photo: 0,
                     mailShow: false,
                     mail: "",
+                    passShow: false,
+                    password: "",
+                    samePassShow: false,
+                    password_confirmation: "",
                 },
                 methods: {
                     closeAll: function closeAll() {
                         this.show = false;
                         this.addListShow = false;
+
                     },
                     ghostMethod: function (event) {
                         this.x = event.pageX;
@@ -49850,6 +49856,22 @@
                         } else {
                             this.mailShow = true;
                             this.mailOk = false;
+                        }
+                    },
+                    isAPassword: function (password) {
+                        if (password == "" || password.length > 2) {
+                            this.passShow = false;
+                        } else {
+                            this.passShow = true;
+                        }
+
+                    },
+                    isSamePassword: function (password_confirmation) {
+                        if (password_confirmation == this.password) {
+                            this.samePassShow = false;
+                        } else {
+                            this.samePassShow = true;
+
                         }
                     },
                 }

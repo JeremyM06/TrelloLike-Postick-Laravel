@@ -34,6 +34,10 @@ class ColumnController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'string|min:1|max:255',
+        ]);
+
         $col = new Col();
         $col->title = ucfirst($request->title);
         $col->table_id = $request->tableId;
@@ -72,12 +76,11 @@ class ColumnController extends Controller
      */
     public function update(Request $request)
     {
-
+        $request->validate([
+            'colupdate' => 'string|min:1|max:50',
+        ]);
         $col = Col::all()->where('id', $request->id)->first();
-
-        if ($request->colupdate) {
-            $col->title = ucfirst($request->colupdate);
-        }
+        $col->title = ucfirst($request->colupdate);
         $col->save();
         return back();
     }

@@ -73,8 +73,6 @@
     </head>
     <body>
 
-
-
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth

@@ -30,21 +30,29 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 var app = new Vue({
     el: '#app',
     data: {
-
+        partage: false,
         show: false,
         colTitle: false,
+        cardTitle: false,
         listCol: false,
         listCard: false,
         listCom: true,
         addListShow: false,
         x: 0,
         y: 0,
-
+        photo: 0,
+        mailShow: false,
+        mail: "",
+        passShow: false,
+        password: "",
+        samePassShow: false,
+        password_confirmation: "",
     },
     methods: {
         closeAll: function closeAll() {
             this.show = false;
             this.addListShow = false;
+
         },
         ghostMethod: function (event) {
             this.x = event.pageX;
@@ -52,6 +60,31 @@ var app = new Vue({
             this.addListShow = true,
                 console.log(this.x, this.y);
 
-        }
+        },
+        isAMail: function (mail) {
+            if (/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(mail) || mail == "") {
+                this.mailShow = false;
+                this.mailOk = true;
+            } else {
+                this.mailShow = true;
+                this.mailOk = false;
+            }
+        },
+        isAPassword: function (password) {
+            if (password == "" || password.length > 2) {
+                this.passShow = false;
+            } else {
+                this.passShow = true;
+            }
+
+        },
+        isSamePassword: function (password_confirmation) {
+            if (password_confirmation == this.password) {
+                this.samePassShow = false;
+            } else {
+                this.samePassShow = true;
+
+            }
+        },
     }
 });

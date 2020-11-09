@@ -10920,8 +10920,8 @@ a:hover {
 /*************************Table*****************************/
 .acjatable{
     height: 20rem;
-
 }
+
 /*******Style List********/
 .acjaccol {
   border-radius: 10px;
@@ -10989,6 +10989,40 @@ a:hover {
     width: 20px;
     background-color: transparent;
 }
+/**Ajout Commentaire à  Card**/
+.cardScale:hover{
+    transform: scale(1.5);
+}
+.acja-com-title{
+    background-color:#66b3ff;
+    border:0px solid white;
+    border-radius:3px
+}
+.acja-com-content{
+    justify-content: justify;
+     background-color:lightgray;
+      border:0px solid white;
+       border-radius:3px
+}
+
+.acja-com-lign{
+    word-break: break-word;
+    max-width:250px;
+}
+
+.acja-auteur{
+    color:purple;
+    font-style: italic
+}
+
+.acja-del{
+    width:30px;
+    border:0px solid red;
+    border-radius:3px
+}
+.acja-del:hover{
+    transform: scale(1.5);
+}
 
 /******************FOOTER************************/
 
@@ -11003,13 +11037,15 @@ left: 40%;
 .ghostList{
     position: absolute;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     font-size: 15px;
     border-radius: 20px;
     font-weight: 900;
-    padding: 10px;
+    padding: 15px;
     background-color: gray;
-    height: 50px;
+    height: auto;
+
 }
 /************VERIF FRONT***********/
 

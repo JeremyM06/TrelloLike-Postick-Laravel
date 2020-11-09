@@ -25,6 +25,8 @@ Route::get('/table', 'TableController@index')->middleware('auth')->name('table')
 Route::post('/table', 'TableController@store')->middleware('auth')->name('table.store');
 //Team boards
 Route::get('/table/team', 'TableController@update')->middleware('auth')->name('table.update');
+Route::get('/table/destroy', 'TableController@destroy')->middleware('auth')->name('table.destroy');
+
 
 Route::get('/table/background', 'TableController@background')->middleware('auth')->name('table.image');
 
@@ -43,12 +45,14 @@ Route::get('/col/delete', 'ColumnController@destroy')->middleware('auth')->name(
 
 //Create card
 Route::post('/card', 'CardController@store')->middleware('auth')->name('card.store');
+//Create update
+Route::any('/card/update', 'CardController@update')->middleware('auth')->name('card.update');
 //Delete Card
 Route::get('/card/delete', 'CardController@destroy')->middleware('auth')->name('card.delete');
 
 //Create comments
 Route::post('/com', 'CommentsController@store')->middleware('auth')->name('com.store');
-//Create comments
+//delete comments
 Route::get('/com/delete', 'CommentsController@destroy')->middleware('auth')->name('com.delete');
 
 

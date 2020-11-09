@@ -66,11 +66,15 @@
                         <br>
                         <br>
                         <p class="card-text" >Votre nouveau mot de passe : </p>
-                        <input type="password" name="password">
+                        <input v-model="password" v-on:keyup="isAPassword(password)" type="password" name="password" :class="{mjjalertform : passShow}">
+                        <p class="textFormAlert" v-show="passShow">Le password doit contenir 3 caractères minimum</p>
+
                         <br>
                         <br>
                         <p class="card-text">Confirmer votre mot de passe : </p>
-                        <input type="password" name="password_confirmation">
+                        <input v-model="password_confirmation" v-on:keyup="isSamePassword(password_confirmation)" type="password" name="password_confirmation" :class="{mjjalertform : samePassShow}">
+                        <p class="textFormAlert" v-show="samePassShow">Le password ne correspond pas</p>
+
 {{-- Modif photo --}}
                         <div class="btn-group">
                             <button type="button" class="btn"><img style="width: 150px; heigth:150px;border-radius:100%;" src="assets/images/{{ $item->photo }}.png" alt="image"></button>

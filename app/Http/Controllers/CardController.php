@@ -37,6 +37,9 @@ class CardController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'string|min:1|max:255',
+        ]);
         $card = new Card();
         $card->title = $request->title;
         $card->col_id = $request->col_id;
@@ -74,9 +77,16 @@ class CardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        // dd($request);
+        $request->validate([
+            'cardupdate' => 'string|min:1|max:255',
+        ]);
+        $card = Card::all()->where('id', $request->id)->first();
+        $card->title = ucfirst($request->cardupdate);
+        $card->save();
+        return back();
     }
 
     /**
