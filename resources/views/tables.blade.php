@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
 @section('style')
+<style>
+.btn.group{
+    background-color: white;
 
+}
+</style>
 @section('title')
     @foreach ($tables as $item)
         {{$item->title}}
@@ -119,9 +124,8 @@
     {{-- Choose yours background --}}
 
     <div class="btn-group">
-        <button type="button" class="btn"><img style="width: 150px; heigth:150px;border-radius:100%;" src="assets/images/{{ $item->photo }}.jpg" alt="image"></button>
+        <button type="button" class="btn"><img style="width: 150px; heigth:150px;border-radius:100%;" src="assets/images/{{ $item->photo }}.jpg" alt="Choisir votre fonds"></button>
         <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span class="sr-only">Changer votre fonds de tableau</span>
         </button>
         <div class="dropdown-menu">
 
