@@ -2,9 +2,32 @@
 
 @section('style')
 <style>
-.btn.group{
-    background-color: white;
+    .btn-group {
+        width: 210px;
 
+    }
+input[type=submit] {
+ width:75px;
+ margin-left:5px;
+ border-radius: 10px;
+ background-color: wheat;
+ box-shadow:1px 1px 1px black;
+ cursor:pointer;
+ }
+ input[type=submit]:hover {
+ background-color:#5ef440;
+ }
+input[type=submit]:active {
+ background-color:#5ef440;
+ box-shadow:1px 1px 1px #D83F3D inset;
+}
+.button-add {
+ width:150px;
+ margin-left:5px;
+ border-radius: 10px;
+ background-color: wheat;
+ box-shadow:1px 1px 1px black;
+ cursor:pointer;
 }
 </style>
 @section('title')
@@ -108,7 +131,7 @@
     </div>
     @endforeach
 
-    <button v-on:click="show =! show" v-show="!show" style="max-height: 30px">Ajouter une liste</button>
+    <button v-on:click="show =! show" v-show="!show" class="button-add" style="max-height: 30px">Ajouter une liste</button>
 
         <div >
             <form v-show="show"  action="@route('col.store')" method="POST" v-on:submit="show = false">
@@ -123,24 +146,23 @@
     </div>
     {{-- Choose yours background --}}
 
-    <div class="btn-group">
-        <button type="button" class="btn"><img style="width: 150px; heigth:150px;border-radius:100%;" src="assets/images/{{ $item->photo }}.jpg" alt="Choisir votre fonds"></button>
-        <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <div class="btn-group fixed-bottom">
+        <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choisir votre image de fond
         </button>
         <div class="dropdown-menu">
 
             <div class="d-flex align-items-center">
             <form action="@route('table.image')" method="GET">
-                @for ($i = 0; $i < 11; $i++)
+                @for ($i = 1; $i < 11; $i++)
 
                 <div class="dropdown-item">
                     <input type="radio" id="fonds{{$i}}" name="image" value="fonds{{$i}}" style="visibility: hidden" onclick="this.form.submit()">
-                    <label for="fonds{{$i}}"><img style="width: 80px;heigth:80px;border-radius: 100px;" src="assets/images/fonds{{$i}}.jpg" alt=""></label>
+                    <label for="fonds{{$i}}"><img style="width: 100px;heigth:80px;" src="assets/images/fonds{{$i}}.jpg" alt=""></label>
                     <input type="hidden" name="tableId" value="{{ $table }}">
                 </div>
 
                 @endfor
-                <input type="submit" class="btn btn-primary" value="Enregistrer">
+
             </form>
 
         </div>

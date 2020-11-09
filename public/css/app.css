@@ -10922,6 +10922,12 @@ a:hover {
     height: 20rem;
 
 }
+/* .acjaboard {
+    background-size: cover;
+    width: 250px;
+    height: 250px;
+} */
+
 /*******Style List********/
 .acjaccol {
   border-radius: 10px;
@@ -10994,9 +11000,9 @@ a:hover {
 
 .acjafooter {
   text-align: center;
-  position: absolute;
+  /* position: absolute;
   bottom: 0;
-left: 40%;
+left: 40%; */
   padding: 0;
 }
 
@@ -11021,3 +11027,4 @@ left: 40%;
 .mjjalertform{
     border: red solid 3px !important;
 }
+

@@ -64,7 +64,6 @@
                         <input v-model="mail"  type="text" v-on:keyup="isAMail(mail)" class="form-control" :class="{mjjalertform : mailShow}" name="email" placeholder="{{ $item->email }}">
                         <span class="textFormAlert" v-show="mailShow">Le mail n'est pas conforme</span>
                         <br>
-                        <br>
                         <p class="card-text" >Votre nouveau mot de passe : </p>
                         <input type="password" name="password">
                         <br>
