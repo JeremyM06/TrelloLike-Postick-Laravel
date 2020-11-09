@@ -1,22 +1,16 @@
 @extends('layouts.app')
 
 @section('style')
-<style>
-    body{
-        background-image: url("https://i.pinimg.com/originals/ab/0e/61/ab0e6142a4c03a09db9f39939aef9519.jpg");
-        background-size: cover;
 
-
-    }
-
-</style>
 @section('title')
     @foreach ($tables as $item)
         {{$item->title}}
     @endforeach
 @endsection
 @section('content')
-
+@foreach ($tables as $item)
+<div style="background-image: url('/assets/images/{{$item->image}}.jpg '); background-size: cover; height: 40rem; padding: 30px 20px; witdh: 100%">
+@endforeach
 <div class="d-flex flex-wrap" v-on:dblclick="ghostMethod($event)">
     @foreach ($cols as $col)
     <div class="acjatable" v-on:click="closeAll()">
@@ -122,6 +116,33 @@
             </form>
         </div>
     </div>
+    {{-- Choose yours background --}}
+
+    <div class="btn-group">
+        <button type="button" class="btn"><img style="width: 150px; heigth:150px;border-radius:100%;" src="assets/images/{{ $item->photo }}.jpg" alt="image"></button>
+        <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="sr-only">Changer votre fonds de tableau</span>
+        </button>
+        <div class="dropdown-menu">
+
+            <div class="d-flex align-items-center">
+            <form action="@route('table.image')" method="GET">
+                @for ($i = 0; $i < 11; $i++)
+
+                <div class="dropdown-item">
+                    <input type="radio" id="fonds{{$i}}" name="image" value="fonds{{$i}}" style="visibility: hidden" onclick="this.form.submit()">
+                    <label for="fonds{{$i}}"><img style="width: 80px;heigth:80px;border-radius: 100px;" src="assets/images/fonds{{$i}}.jpg" alt=""></label>
+                    <input type="hidden" name="tableId" value="{{ $table }}">
+                </div>
+
+                @endfor
+                <input type="submit" class="btn btn-primary" value="Enregistrer">
+            </form>
+
+        </div>
+    </div>
+
+    {{-- End background --}}
 
     <div  v-show="addListShow" class="ghostList" v-bind:style="{ top: y + 'px', left: x + 'px' }">
         <form  action="@route('col.store')" method="POST" v-on:submit="addListShow = false">
@@ -133,5 +154,6 @@
             <div style="height: 100%;width: 100%; position: absolute; z-index:1;" v-on:click="show = false"></div>
         </form>
     </div>
+</div>
 @endsection
 

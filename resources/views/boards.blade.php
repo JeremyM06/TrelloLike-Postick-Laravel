@@ -7,6 +7,7 @@
 	background-position: center center;
 }
 </style>
+
 @section('title')
     Mes tableaux
 @endsection
@@ -14,7 +15,10 @@
 @section('content')
 <div class="container">
 
-
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Ajouter un nouveau tableau
+  </button>
 
   <!-- Modal -->
   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -93,3 +97,4 @@
 </div>
 
 @endsection
+
