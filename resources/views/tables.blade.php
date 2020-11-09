@@ -24,14 +24,6 @@
 
             @foreach ($cards as $card)
                 @if ($card->col_id == $col->id)
-<<<<<<< HEAD
-                    <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-    <div class="text-center">
-        {{ $card->title }}
-    </div>
-  </button>
-=======
                 <div class="acjaCardStyle">
                     <div class="d-flex flex-column" style="width: 90%;text-align: left;" data-toggle="modal" data-target="#a{{ $card->id }}">
                         <div class="my-2">
@@ -54,7 +46,6 @@
                 </div>
                                     <!-- Button trigger modal -->
 
->>>>>>> 0284b6a8bc89f0dd06b0dc1a8d8d406467fca478
 
    {{-- Modal --}}
   <div class="modal fade" id="a{{ $card->id }}" tabindex="-1" role="dialog" aria-labelledby="a{{ $card->id }}Title" aria-hidden="true">
@@ -107,17 +98,6 @@
     </div>
     @endforeach
 
-<<<<<<< HEAD
-    <hr><hr><hr>
-</div>
-    <form action="@route('col.store')" method="POST">
-        @csrf
-        <label for="">Ajouter une Liste</label>
-        <input type="text" name="title">
-        <input type="hidden" name="tableId" value="{{ $table }}">
-        <input type="submit">
-    </form>
-=======
     <button v-on:click="show =! show" v-show="!show" style="max-height: 30px">Ajouter une liste</button>
 
         <div >
@@ -131,7 +111,6 @@
             </form>
         </div>
     </div>
->>>>>>> 0284b6a8bc89f0dd06b0dc1a8d8d406467fca478
 
     <div  v-show="addListShow" class="ghostList" v-bind:style="{ top: y + 'px', left: x + 'px' }">
         <form  action="@route('col.store')" method="POST" v-on:submit="addListShow = false">

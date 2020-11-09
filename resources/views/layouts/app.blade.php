@@ -29,7 +29,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-success shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    PosTick
+                   <h1>PosTick</h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -40,6 +40,8 @@
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
+
+                    <a href="@route('table')"><img src="assets/images/postick.jpg" style="justify-content: center" width="50px"></a>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -56,7 +58,8 @@
                         @else
                         <img class="imgProfil" src="assets/images/{{ Auth::user()->photo }}.png" alt="profil">
                             <li class="nav-item dropdown">
-                                <a href="@route('table')">Mes tableaux</a>
+
+
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
