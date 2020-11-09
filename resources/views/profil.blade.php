@@ -5,11 +5,10 @@
 <style>
     body{
         background-image: url(https://1.bp.blogspot.com/-TrTUxaaohYs/WGsrYjCaI2I/AAAAAAAASSM/npnrYplkVZI4eikM-xyuRnMNNVpn-PscwCLcB/s1600/Nexus%2BDesktop%2BWallpapers%2B10.jpg);
-        /* background-position: center center; */
         background-size: cover;
     }
     p {
-        font-family: 'Courgette', cursive;
+        font-family: 'Roboto', sans-serif;
         font-size: 1.5em;
     }
 

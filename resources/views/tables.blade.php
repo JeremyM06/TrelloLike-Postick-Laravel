@@ -7,7 +7,7 @@
         font-size: 2em;
     }
     label {
-        font-family: 'Satisfy', cursive;
+        font-family: 'Roboto', sans-serif;
         font-size: 1em;
     }
 .btn-group {

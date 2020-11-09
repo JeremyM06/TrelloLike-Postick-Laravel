@@ -109,7 +109,7 @@
                 Ajouter un nouveau tableau
             </button>
                 </div>
-            </div>
+
             <div class="my-2 mx-2">
             <h4>Mes tableaux partagés</h4>
 
@@ -134,6 +134,6 @@
 
         <!-- Button trigger modal -->
 
-
+</div>
 @endsection
 
