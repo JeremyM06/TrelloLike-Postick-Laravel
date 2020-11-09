@@ -119,12 +119,19 @@ class TableController extends Controller
         return back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    public function background(Request $request)
+    {
+        $request->validate([
+
+            'image' => 'nullable',
+        ]);
+        $table = Table::all()->where('id', $request->tableId)->first();
+        $table->image = $request->image;
+        $table->save();
+        return back();
+    }
+
+
     public function destroy($id)
     {
         //

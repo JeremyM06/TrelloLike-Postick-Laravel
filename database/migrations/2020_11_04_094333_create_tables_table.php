@@ -20,6 +20,7 @@ class CreateTablesTable extends Migration
             $table->bigInteger('user_id');
             $table->string('title');
             $table->bigInteger('team')->default(0);
+            $table->string('image')->default('fonds2');
             $table->timestamps();
         });
     }

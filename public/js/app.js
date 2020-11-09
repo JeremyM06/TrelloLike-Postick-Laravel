@@ -49828,7 +49828,8 @@
                     x: 0,
                     y: 0,
                     photo: 0,
-
+                    mailShow: false,
+                    mail: "",
                 },
                 methods: {
                     closeAll: function closeAll() {
@@ -49841,7 +49842,16 @@
                         this.addListShow = true,
                             console.log(this.x, this.y);
 
-                    }
+                    },
+                    isAMail: function (mail) {
+                        if (/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(mail) || mail == "") {
+                            this.mailShow = false;
+                            this.mailOk = true;
+                        } else {
+                            this.mailShow = true;
+                            this.mailOk = false;
+                        }
+                    },
                 }
             });
 

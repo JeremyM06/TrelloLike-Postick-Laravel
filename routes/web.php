@@ -26,6 +26,10 @@ Route::post('/table', 'TableController@store')->middleware('auth')->name('table.
 //Team boards
 Route::get('/table/team', 'TableController@update')->middleware('auth')->name('table.update');
 
+Route::get('/table/background', 'TableController@background')->middleware('auth')->name('table.image');
+
+
+
 
 //--- Table=>col/cards/com ---
 Route::get('/detailsTable', 'TableController@edit')->middleware('auth')->name('table.edit');
