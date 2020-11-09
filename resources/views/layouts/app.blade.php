@@ -41,7 +41,7 @@
 
                     </ul>
 
-                    <a href="@route('table')"><img src="assets/images/postick.jpg" style="justify-content: center" width="50px"></a>
+                    <a href="@route('table')"><img src="assets/images/postick.png" style="justify-content: center" width="50px"></a>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
