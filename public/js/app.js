@@ -49818,7 +49818,7 @@
             var app = new Vue({
                 el: '#app',
                 data: {
-
+                    partage: false,
                     show: false,
                     colTitle: false,
                     listCol: false,
@@ -49827,6 +49827,7 @@
                     addListShow: false,
                     x: 0,
                     y: 0,
+                    photo: 0,
 
                 },
                 methods: {

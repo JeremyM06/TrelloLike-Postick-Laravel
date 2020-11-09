@@ -8,6 +8,7 @@ use App\Table;
 use App\Col;
 use App\Card;
 use App\Com;
+use App\User;
 
 
 class TableController extends Controller
@@ -21,6 +22,7 @@ class TableController extends Controller
     {
         return view('boards', [
             'table' => Table::all()->where('user_id', Auth::user()->id),
+            'tableTeam' => Table::all()->where('team', Auth::user()->id),
         ]);
     }
 
@@ -48,10 +50,20 @@ class TableController extends Controller
         $table->title = $request->title;
         $table->user_id = $userCo->id;
         $table->save();
-        // dd(
-        //     $request,
-        //     $userCo
-        // );
+
+        $table = Table::all()->last();
+        $col = new Col();
+        $col->title = 'À faire';
+        $col->table_id = $table->id;
+        $col->save();
+        $col = new Col();
+        $col->title = 'En cours';
+        $col->table_id = $table->id;
+        $col->save();
+        $col = new Col();
+        $col->title = 'Urgent';
+        $col->table_id = $table->id;
+        $col->save();
 
         return back();
     }
@@ -91,9 +103,20 @@ class TableController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        if ($request->email && $request->email != Auth::user()->email) {
+            foreach (User::all() as $user) {
+                if ($user->email == $request->email) {
+                    $table = Table::all()->where('id', $request->tableId)->first();
+                    // $user = User::all()->where('email', $request->email)->first();
+                    $table->team = $user->id;
+                    $table->save();
+                }
+            }
+        }
+
+        return back();
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Com;
 use App\Card;
@@ -37,11 +38,10 @@ class CommentsController extends Controller
     public function store(Request $request)
     {
         $card = Card::all()->where('id', $request->card_id)->first();
-        // dd($card);
         $com = new Com();
-
         $com->comment = $request->title;
         $com->card_id = $request->card_id;
+        $com->user_name = Auth::user()->name;
         $com->save();
         $card->numberOfCom++;
         $card->save();

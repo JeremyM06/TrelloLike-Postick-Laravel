@@ -70,6 +70,8 @@
             @if ($com->card_id == $card->id)
             <div class="d-flex justify-content-between mx-2">
                  {{ $com->comment }}
+                 {{ $com->user_name }}
+                 {{ $com->created_at }}
                 <a href="@route('com.delete')?id={{ $com->id }}&card_id={{ $com->card_id }}" ><button>supprimer</button></a>
             </div>
             @endif

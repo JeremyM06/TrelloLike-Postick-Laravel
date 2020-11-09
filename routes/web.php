@@ -23,6 +23,9 @@ Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');
 //----Boards & Création de tables
 Route::get('/table', 'TableController@index')->middleware('auth')->name('table');
 Route::post('/table', 'TableController@store')->middleware('auth')->name('table.store');
+//Team boards
+Route::get('/table/team', 'TableController@update')->middleware('auth')->name('table.update');
+
 
 //--- Table=>col/cards/com ---
 Route::get('/detailsTable', 'TableController@edit')->middleware('auth')->name('table.edit');
