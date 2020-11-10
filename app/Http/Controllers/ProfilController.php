@@ -80,7 +80,7 @@ class ProfilController extends Controller
     }
 
 
-    public function destroy($id)
+    public function destroy(Request $request)
     {
         //
     }

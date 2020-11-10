@@ -31,8 +31,6 @@ Route::get('/table/destroy', 'TableController@destroy')->middleware('auth')->nam
 Route::get('/table/background', 'TableController@background')->middleware('auth')->name('table.image');
 
 
-
-
 //--- Table=>col/cards/com ---
 Route::get('/detailsTable', 'TableController@edit')->middleware('auth')->name('table.edit');
 //Create col
@@ -57,40 +55,12 @@ Route::get('/com/delete', 'CommentsController@destroy')->middleware('auth')->nam
 
 
 
-
-
-
-
-
-
 //--- Profile routes
 
 // Route Profile GET && POST
 Route::get('/profile', 'ProfilController@index')->middleware('auth')->name('profile.index');
-Route::post('/profile', 'ProfilController@update')->name('profile.update');
+Route::post('/profile', 'ProfilController@update')->middleware('auth')->name('profile.update');
 
-
-//  Home master (home personnalisée)
-
-// Route show GET
-Route::get('/homemaster', 'UserController@show')->name('homemaster.show.');
-
-// Route create POST
-Route::post('/homemaster', 'UserController@create')->name('homemaster.create');
-
-// Route destroy
-Route::get('/homemaster', 'UserController@destroy')->name('homemaster.destroy');
-
-// Route update
-Route::get('/homemaster', 'UserController@update')->name('homemaster.update');
-
-
-// Route::prefix('/home', 'HomeController@index')->middleware('auth')->name('home')->group(function () {
-//     Route::get('/table', 'TestController@index')->middleware('auth')->name('table');
-//     Route::post('/table', 'TestController@store')->name('table.store');
-//     Route::get('/col', 'ColumnController@index')->name('col.index');
-//     Route::post('/col', 'ColumnController@store')->name('col.store');
-// });
 
 
 //Ligne CLI pour cascade <  composer require shiftonelabs/laravel-cascade-deletes

@@ -15,42 +15,42 @@
         font-family: 'Roboto', sans-serif;
         font-size: 1em;
     }
-.btn-group {
-        width: 210px;
+    .btn-group {
+            width: 210px;
 
-}
+    }
 
-input[type=submit] {
- width:90px;
- margin-left:5px;
- border-radius: 10px;
- background-color: wheat;
- box-shadow:1px 1px 1px black;
- cursor:pointer;
- }
- input[type=submit]:hover {
- background-color:#5ef440;
- }
-input[type=submit]:active {
- background-color:#5ef440;
- box-shadow:1px 1px 1px #D83F3D inset;
-}
-.button-add {
- width:150px;
- margin-left:5px;
- border-radius: 10px;
- background-color: wheat;
- box-shadow:1px 1px 1px black;
- cursor:pointer;
- font-family: 'Roboto', sans-serif;
-}
-.label-user {
-    color: ghostwhite;
-}
+    input[type=submit] {
+    width:90px;
+    margin-left:5px;
+    border-radius: 10px;
+    background-color: wheat;
+    box-shadow:1px 1px 1px black;
+    cursor:pointer;
+    }
+    input[type=submit]:hover {
+    background-color:#5ef440;
+    }
+    input[type=submit]:active {
+    background-color:#5ef440;
+    box-shadow:1px 1px 1px #D83F3D inset;
+    }
+    .button-add {
+    width:150px;
+    margin-left:5px;
+    border-radius: 10px;
+    background-color: wheat;
+    box-shadow:1px 1px 1px black;
+    cursor:pointer;
+    font-family: 'Roboto', sans-serif;
+    }
+    .label-user {
+        color: ghostwhite;
+    }
 </style>
 @section('content')
 <div v-on:dblclick="ghostMethod($event)">
-    {{-- ghoslist --}}
+    {{-- start Ghoslist --}}
     <div  v-show="addListShow" class="ghostList" v-bind:style="{ top: y + 'px', left: x + 'px' }">
         <form  action="@route('col.store')" method="POST" v-on:submit="addListShow = false">
             @csrf
@@ -60,14 +60,12 @@ input[type=submit]:active {
             <input type="submit">
         </form>
     </div>
-    {{-- finghostlist --}}
+    {{-- End Ghostlist --}}
 
     @foreach ($tables as $item)
 
     <div v-on:click="closeAll()" style="background-image: url('/assets/images/{{$item->image}}.jpg '); background-size: cover; height: 40rem; padding: 30px 20px; witdh: 100%">
     @endforeach
-
-
     <div class="d-flex flex-wrap"  >
         @foreach ($cols as $col)
         <div class="acjatable" v-on:click="closeAll()">
@@ -114,13 +112,13 @@ input[type=submit]:active {
         <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content" >
             <div class="modal-header">
-            <h5 v-show="!cardTitle" v-on:click="cardTitle =! cardTitle" class="modal-title cardScale" id="exampleModalLongTitle"> {{ $card->title }} </h5>
-{{-- Changement title card --}}
+            <h5 v-show="!cardTitle" v-on:click="cardTitle =! cardTitle" class="modal-title cardScale ml-3" id="exampleModalLongTitle"> {{ $card->title }} </h5>
+{{-- Start Change title card --}}
             <form v-show="cardTitle" v-on:submit="cardTitle = false" action="@route('card.update')" method="ANY">
                 <input type="text" name="cardupdate" id="{{ $card->title }}" value=" {{ $card->title }} ">
                 <input type="hidden" name="id" value="{{ $card->id }}">
             </form>
-{{-- Fin Changement title card --}}
+{{-- End Change title card --}}
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -180,16 +178,14 @@ input[type=submit]:active {
         </div>
         @endforeach
 
-    {{-- <button v-on:click="show =! show" v-show="!show" class="button-add" >Double click pour ajouter une liste</button> --}}
-
-        {{-- <div class="d-flex" style="z-index: 100;">
+    {{-- <button v-on:click="show =! show" v-show="!show" class="button-add" >Double click pour ajouter une liste</button>
+         <div class="d-flex">
             <form v-show="show"  action="@route('col.store')" method="POST" v-on:submit="show = false">
                 @csrf
                 <label class="label-user" for="">Ajouter une Liste</label>
                 <input type="text" name="title">
                 <input type="hidden" name="tableId" value="{{ $table }}">
                 <input type="submit">
-                <div style="height: 100%;width: 100%; position: absolute; z-index:1;" v-on:click="show = false"></div>
             </form>
         </div> --}}
     {{-- Choose your background --}}

@@ -1,5 +1,15 @@
 @extends('layouts.app')
+@section('style')
+    <style>
+        .card{
+            background-color: rgb(136, 238, 238);
+            box-shadow: gray 3px 3px 3px;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.5em;
+        }
 
+    </style>
+@endsection
 @section('content')
 <div class="container my-5">
     <div class="row justify-content-center">
